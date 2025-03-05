@@ -1,0 +1,20 @@
+name:sneakpeak
+
+on:
+  push:
+      branches:
+          - main
+
+jobs:
+    sneakpeak-frontend:
+            runs-on:ubuntu-latest
+
+            steps:
+                - name: print Hello world
+                  run: echo "hello world"
+
+                - name: Run a Custom script
+                  run: |
+                    echo "this is new project"
+                    mkdir -p new_directory
+                    echo "script executed successfully"
