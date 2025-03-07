@@ -10,11 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print Hello world
-        run: echo "hello world"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Run a Custom script
-        run: |
-          echo "this is new project"
-          mkdir -p new_directory
-          echo "script executed successfully"
+      - name: Setup nodejs
+        uses: actions/checkpout@v3
+        with:
+          node-version: 22.x
+          
+      - name: Install Dependencies
+        run: npm install
+        continue-on-error: false
+        
+      - name: Build Next js
+        run: npm run build
+        continue-on-error: false
+        
+     
